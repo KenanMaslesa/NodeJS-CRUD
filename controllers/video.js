@@ -1,7 +1,7 @@
 const Video = require('../models/Video')
 const mongoose = require('mongoose')
 
-exports.addVideo = async (req, res, next) => {
+exports.addVideo = async (req, res) => {
   try {
     const newVideo = new Video({
       _id: new mongoose.Types.ObjectId(),
@@ -24,7 +24,7 @@ exports.addVideo = async (req, res, next) => {
   }
 }
 
-exports.getVideos = async (req, res, next) => {
+exports.getVideos = async (req, res) => {
   await Video.find().then((videos) => {
     res.json(videos);
   })
@@ -41,21 +41,35 @@ exports.getVideoById = async (req, res) => {
   }
 }
 
-exports.deleteVideo = async (req, res, next) => {
+exports.loadMoreVideos = async (req, res) => {
+  const page = req.params.page;
+  const take = 2;
+  try{
+    await Video.find()
+    .limit(take)
+    .skip(take * page)
+    .then((videos) => {
+      res.json(videos)
+    })
+  }catch(err){
+    res.status(500).send('Server error');
+  }
+
+}
+
+exports.deleteVideo = async (req, res) => {
   try{
     const videoId = req.params.videoId;
-    console.log(videoId)
     await Video.deleteOne({_id: videoId}).then((result) => res.json(result));
   }catch(err){
     res.status(500).send('Server error');
   }
 }
 
-exports.editVideo = async (req, res, next) => {
+exports.editVideo = async (req, res) => {
   try{
     const videoId = req.params.videoId;
     const newData = req.body;
-    console.log(videoId + ' '+ newData)
     await Video.updateOne({_id: videoId}, newData).then((result) => res.json(result));
   }catch(err){
     res.status(500).send('Server error');
