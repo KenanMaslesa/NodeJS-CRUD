@@ -1,9 +1,14 @@
-https://thawing-thicket-16321.herokuapp.com/api/videos/get-all-videos
+GET ALL VIDEOS
+https://djecijikutak.herokuapp.com/api/videos
 
-https://thawing-thicket-16321.herokuapp.com/api/videos/add-video
+GET VIDEO BY ID
+https://djecijikutak.herokuapp.com/api/videos/616c45e8cb407a0972a546dd
 
-https://thawing-thicket-16321.herokuapp.com/api/videos/get-video/616b5877594ccaf04e8ff016
+ADD VIDEO (POST)
+https://djecijikutak.herokuapp.com/api/videos/add-video
 
-https://thawing-thicket-16321.herokuapp.com/api/videos/delete/616b72c2511f490539107af6
+DELETE VIDEO (DELETE)
+https://djecijikutak.herokuapp.com/api/videos/delete/616c51e853fa60c2af0bca8a
 
-https://thawing-thicket-16321.herokuapp.com/api/videos/edit/616b5877594ccaf04e8ff016
+EDIT VIDEO (PUT)
+https://djecijikutak.herokuapp.com/api/videos/edit/616b5877594ccaf04e8ff016
