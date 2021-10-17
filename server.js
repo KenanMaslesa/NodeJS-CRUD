@@ -1,11 +1,16 @@
+//npm run server
 const express = require('express');
 const connectDB = require('./config/db')
 const app = express();
-
+const bodyParser= require('body-parser');
 //Conect DB
 connectDB();
 
-app.get('/', (req, res) => res.send('API running'))
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+//Define Routes
+app.use('/api/videos', require('./routes/videos'))
 
 const PORT = process.env.PORT || 5000;
 
