@@ -43,7 +43,7 @@ exports.getVideoById = async (req, res) => {
 
 exports.loadMoreVideos = async (req, res) => {
   const page = req.params.page;
-  const take = 2;
+  const take = 8;
   try{
     await Video.find()
     .limit(take)
