@@ -12,3 +12,6 @@ https://djecijikutak.herokuapp.com/api/videos/delete/616c51e853fa60c2af0bca8a
 
 EDIT VIDEO (PUT)
 https://djecijikutak.herokuapp.com/api/videos/edit/616b5877594ccaf04e8ff016
+
+LOAD MORE (GET)
+https://djecijikutak.herokuapp.com/api/videos/load-more/0 -> 0 is page
